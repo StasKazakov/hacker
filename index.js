@@ -47,6 +47,7 @@ function generateRandomPassword(length = 12) {
 }
 
 async function runBot() {
+    let counter = 0;
     while (true) {
         // Launch the browser and open a new blank page
         const browser = await puppeteer.launch({ headless: true });
@@ -93,6 +94,7 @@ async function runBot() {
             await page.locator('.button-send').click();
             await page.locator('#formTwo_password').fill(pass);
             await page.locator('.ant-btn-variant-solid').click();
+            counter++;
 
             page.on('response', async (response) => {
                 const status = response.status();
@@ -102,7 +104,7 @@ async function runBot() {
 
                     if (contentType && contentType.includes('application/json')) {
                         const data = await response.json();
-                        console.log(`Status: ${status} ${data.message}`);
+                        console.log(`Status: ${status} ${data.message} Requests: ${counter}`);
                     } else {
                         const text = await response.text();
                         console.log(`Status: ${status} | Text:`, text.slice(0, 500)); 
