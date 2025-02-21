@@ -53,7 +53,8 @@ async function runBot() {
         const browser = await puppeteer.launch({
             headless: true,
             args: [
-                '--proxy-server=http://198.23.239.134:6540'
+                '--proxy-server=http://198.23.239.134:6540',
+                '--no-sandbox',
             ]
         });
 
