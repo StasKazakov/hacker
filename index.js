@@ -50,8 +50,25 @@ async function runBot() {
     let counter = 0;
     while (true) {
         // Launch the browser and open a new blank page
-        const browser = await puppeteer.launch({ headless: true });
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: [
+                '--proxy-server=http://198.23.239.134:6540'
+            ]
+        });
+
         const page = await browser.newPage();
+
+        await page.authenticate({
+            username: 'hmvyyxps',
+            password: '0jvv8w4qfhq7'
+        });
+
+        //Check proxy
+        await page.goto('https://checkip.amazonaws.com');
+        const ip = await page.evaluate(() => document.body.innerText);
+        console.log('Current IP:', ip);
+
 
         try {
         // Create fake data
