@@ -54,8 +54,8 @@ async function runBot() {
         const page = await browser.newPage();
 
         await page.authenticate({
-            username: 'IJwZBHYsGWKI8Vgm',
-            password: '2sGBB6kkALPZJKKL'
+            username: 'nAl2KmJwXMwuEJN4',
+            password: '3bm5DuMoK6HVMKSb'
         });
 
         //Check proxy
