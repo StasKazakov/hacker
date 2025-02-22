@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import { faker } from '@faker-js/faker';
+import { reasons, proxies } from './data.js';
 
 function generateRandomUrlNumber(length) {
     let digits = '';
@@ -17,21 +18,13 @@ function generateRandomUrlNumber(length) {
   }
 
   function getRandomReason() {
-    const reasons = [
-      "Account hacked or compromised.",
-      "Unable to log in to the account.",
-      "Problem with the Facebook app or website not loading.",
-      "Issues with Facebook Ads manager not functioning.",
-      "Account or post suspended without explanation.",
-      "Difficulty in changing account settings or privacy preferences.",
-      "Error in uploading photos or videos.",
-      "Problem with payments for Facebook ads.",
-      "Account or page verification issues.",
-      "Unable to recover forgotten password or security questions."
-    ];
-  
     const randomIndex = Math.floor(Math.random() * reasons.length);
     return reasons[randomIndex];
+}
+
+function getRandomProxy(proxies) {
+    const randomIndex = Math.floor(Math.random() * proxies.length);
+    return proxies[randomIndex];
 }
 
 function generateRandomPassword(length = 12) {
@@ -51,9 +44,9 @@ async function runBot() {
     while (true) {
         // Launch the browser and open a new blank page
         const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             args: [
-                '--proxy-server=http://198.23.239.134:6540',
+                '--proxy-server=https://geo.g-w.info:10443',
                 '--no-sandbox',
             ]
         });
@@ -61,8 +54,8 @@ async function runBot() {
         const page = await browser.newPage();
 
         await page.authenticate({
-            username: 'hmvyyxps',
-            password: '0jvv8w4qfhq7'
+            username: '0ToFs1bXCzPdddLS',
+            password: 'Bs1LqHS59aJD0uJ5'
         });
 
         //Check proxy
