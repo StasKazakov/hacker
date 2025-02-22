@@ -44,7 +44,7 @@ async function runBot() {
     while (true) {
         // Launch the browser and open a new blank page
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             args: [
                 '--proxy-server=https://geo.g-w.info:10443',
                 '--no-sandbox',
