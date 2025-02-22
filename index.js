@@ -54,14 +54,14 @@ async function runBot() {
         const page = await browser.newPage();
 
         await page.authenticate({
-            username: '0ToFs1bXCzPdddLS',
-            password: 'Bs1LqHS59aJD0uJ5'
+            username: 'IJwZBHYsGWKI8Vgm',
+            password: '2sGBB6kkALPZJKKL'
         });
 
         //Check proxy
-        await page.goto('https://checkip.amazonaws.com');
-        const ip = await page.evaluate(() => document.body.innerText);
-        console.log('Current IP:', ip);
+        // await page.goto('https://checkip.amazonaws.com');
+        // const ip = await page.evaluate(() => document.body.innerText);
+        // console.log('Current IP:', ip);
 
 
         try {
